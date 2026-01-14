@@ -87,8 +87,11 @@ CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 ```
 ---
 ▶️ Setup Instructions
+
+```bash
  Clone Repository
 git clone <repo-url>
+```
 ---
 
 ## 🔧 Run the Backend
