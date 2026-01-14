@@ -1,65 +1,126 @@
-<h1 align="center">✨ Full-Stack Chat App with Auth & Emails ✨</h1>
+💬 Real-Time Chat Application (1-to-1)
 
-![Demo App](/frontend/public/screenshot-for-readme.png)
+A full-stack real-time chat application built using MERN + Socket.IO that supports private messaging between two users with features like unread message count, read receipts (✓✓), typing indicator, and online status.
 
-Highlights:
+This project was implemented as part of an assignment focusing on message read status, state management, and backend API design.
 
-- 🔐 Custom JWT Authentication (no 3rd-party auth)
-- ⚡ Real-time Messaging via Socket.io
-- 🟢 Online/Offline Presence Indicators
-- 🔔 Notification & Typing Sounds (with toggle)
-- 📨 Welcome Emails on Signup (Resend)
-- 🗂️ Image Uploads (Cloudinary)
-- 🧰 REST API with Node.js & Express
-- 🧱 MongoDB for Data Persistence
-- 🚦 API Rate-Limiting powered by Arcjet
-- 🎨 Beautiful UI with React, Tailwind CSS & DaisyUI
-- 🧠 Zustand for State Management
-- 🧑‍💻 Git & GitHub Workflow (branches, PRs, merges)
-- 🚀 Easy Deployment (free-tier friendly with Sevalla)
+🚀 Features
+✅ Core Features
 
----
+1-to-1 private chat
 
-## 🧪 .env Setup
+Real-time messaging using Socket.IO
 
-### Backend (`/backend`)
+Message persistence using MongoDB
 
-```bash
-PORT=3000
-MONGO_URI=your_mongo_uri_here
+Online / Offline user status
 
-NODE_ENV=development
+Typing indicator (“Typing…”)
 
-JWT_SECRET=your_jwt_secret
+Read receipts (✓ delivered / ✓✓ seen)
 
-RESEND_API_KEY=your_resend_api_key
-EMAIL_FROM=your_email_from_address
-EMAIL_FROM_NAME=your_email_from_name
+Unread message count per conversation
 
-CLIENT_URL=http://localhost:5173
+Optimized API & state management
 
-CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
-CLOUDINARY_API_KEY=your_cloudinary_api_key
-CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+✅ Message Read Logic
 
-ARCJET_KEY=your_arcjet_key
-ARCJET_ENV=development
-```
+Messages are unread by default
 
----
+When a user opens a chat:
 
-## 🔧 Run the Backend
+All messages from that user are marked as read
 
-```bash
+Sender receives real-time ✓✓ update
+
+Unread count updates instantly
+
+🧱 Tech Stack
+Frontend
+
+React (Vite)
+
+Zustand (state management)
+
+Tailwind CSS
+
+Axios
+
+Socket.IO Client
+
+Backend
+
+Node.js
+
+Express.js
+
+MongoDB (Mongoose)
+
+Socket.IO
+
+JWT Authentication
+
+Cloudinary (image uploads)
+
+🗄️ Database Schema
+Message Model (Message.js)
+{
+  senderId: ObjectId (User),
+  receiverId: ObjectId (User),
+  text: String,
+  image: String,
+  isRead: Boolean,
+  createdAt: Date,
+  updatedAt: Date
+}
+
+Read Status Logic
+
+isRead = false → unread
+
+isRead = true → read
+
+Marked read when receiver opens the chat
+
+▶️ Setup Instructions
+1️⃣ Clone Repository
+git clone <repo-url>
+cd chat-app
+
+2️⃣ Backend Setup
 cd backend
 npm install
+
+
+Create .env:
+
+PORT=3000
+MONGO_URI=your_mongodb_uri
+JWT_SECRET=your_secret
+CLIENT_URL=http://localhost:5173
+
+
+Run backend:
+
 npm run dev
-```
 
-## 💻 Run the Frontend
-
-```bash
+3️⃣ Frontend Setup
 cd frontend
 npm install
 npm run dev
-```
+
+🧪 How to Test
+
+Open two browsers / incognito windows
+
+Login with two different users
+
+Send messages:
+
+✓ appears when delivered
+
+✓✓ appears when read
+
+Unread count increases when chat is unopened
+
+Typing indicator shows in real-time
