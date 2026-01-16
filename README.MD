@@ -1,8 +1,3 @@
-💬 Real-Time Chat Application (1-to-1)
-
-A full-stack real-time chat application built using MERN + Socket.IO that supports private messaging between two users with features like unread message count, read receipts (✓✓), typing indicator, and online status.
-
-This project was implemented as part of an assignment focusing on message read status, state management, and backend API design.
 
 # 💬 Real-Time One-to-One Chat Application
 
@@ -67,9 +62,11 @@ isRead = false
   seenAt = current timestamp
   ```
 - Unread count is calculated using:
+
 receiverId = current user
+
 AND isRead = false
-This approach is simple, efficient, and ideal for one-to-one chat systems.
+###This approach is simple, efficient, and ideal for one-to-one chat systems.
 
 ---
 
