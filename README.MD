@@ -67,7 +67,8 @@ isRead = false
   seenAt = current timestamp
   ```
 - Unread count is calculated using:
-
+receiverId = current user
+AND isRead = false
 This approach is simple, efficient, and ideal for one-to-one chat systems.
 
 ---
@@ -122,36 +123,6 @@ Get unread message count per chat
  - ✓✓ read receipt sent to sender in real time
 
 ---
-
-## 🎯 Assignment Requirements Coverage
-
-| Requirement | Status |
-|------------|--------|
-Send messages | ✅ |
-Persist messages | ✅ |
-Unread by default | ✅ |
-Mark as read on open | ✅ |
-Unread count per conversation | ✅ |
-Read receipts | ✅ |
-API design | ✅ |
-Real-time updates | ✅ |
-
----
-
-## 🔮 Future Improvements
-- Group chats
-- Message reactions
-- Last seen status
-- Message deletion/editing
-- Push notifications
-
----
-
-## 👤 Author
-
-**Amit Kumar**  
-IIT Kanpur  
-Full-Stack Developer
 
 🧱 Tech Stack
 Frontend
