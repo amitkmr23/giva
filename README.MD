@@ -66,6 +66,7 @@ isRead = false
 receiverId = current user
 
 AND isRead = false
+
 ###This approach is simple, efficient, and ideal for one-to-one chat systems.
 
 ---
