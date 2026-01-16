@@ -232,4 +232,4 @@ Unread count increases when chat is unopened
 
 Typing indicator shows in real-time
 
-please refresh both the pages after sending the messages as something chats are not loaded
+please refresh both the pages after sending the messages as sometimes chats are not loaded
