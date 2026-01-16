@@ -4,36 +4,154 @@ A full-stack real-time chat application built using MERN + Socket.IO that suppor
 
 This project was implemented as part of an assignment focusing on message read status, state management, and backend API design.
 
-🚀 Features
-✅ Core Features
+# 💬 Real-Time One-to-One Chat Application
 
-1-to-1 private chat
+This project is a real-time private chat application built using **Node.js**, **Express**, **MongoDB**, **React**, and **Socket.IO**.  
+It supports **one-to-one messaging** with **read/unread message tracking**, **unread message counts**, **read receipts**, and **typing indicators**.
 
-Real-time messaging using Socket.IO
+The focus of this project is **backend design**, **database modeling**, and **accurate handling of message read state**, as required in the assignment.
 
-Message persistence using MongoDB
+---
 
-Online / Offline user status
+## 🚀 Features
 
-Typing indicator (“Typing…”)
+### Core Messaging
+- One-to-one private chat between users
+- Text and image messages
+- Messages stored persistently in MongoDB
+- Real-time message delivery using Socket.IO
 
-Read receipts (✓ delivered / ✓✓ seen)
+### Read / Unread Message System
+- Messages are **unread by default**
+- When a user opens a chat:
+  - All incoming messages are marked as **read**
+  - Read timestamp is stored
+  - Sender is notified in real time
+- Read receipts:
+  - ✓ → Delivered
+  - ✓✓ → Seen
 
-Unread message count per conversation
+### Unread Message Count
+- Unread message count displayed for each conversation
+- Count increases when messages arrive in inactive chats
+- Count resets automatically when the chat is opened
 
-Optimized API & state management
+### Real-Time Indicators
+- Online / Offline user status
+- Typing indicator (`Typing...`)
+- Instant read receipt updates
 
-✅ Message Read Logic
+---
 
-Messages are unread by default
+## 🧠 Message Read Status Design
 
-When a user opens a chat:
+### Database Design (Message Model)
 
-All messages from that user are marked as read
+Each message stores its own read state:
 
-Sender receives real-time ✓✓ update
+- `senderId` – User who sent the message  
+- `receiverId` – User who receives the message  
+- `text` – Message content  
+- `image` – Optional image  
+- `isRead` – Boolean flag (default: `false`)  
+- `seenAt` – Timestamp when message is read  
 
-Unread count updates instantly
+### Read Logic
+
+- A message is considered **unread** when:
+isRead = false
+- When the receiver opens the chat:
+- All messages from the sender are updated:
+  ```
+  isRead = true
+  seenAt = current timestamp
+  ```
+- Unread count is calculated using:
+
+This approach is simple, efficient, and ideal for one-to-one chat systems.
+
+---
+
+## 🔌 API Endpoints
+
+### Messages
+
+- `GET /api/messages/contacts`  
+Fetch all chat contacts
+
+- `GET /api/messages/:userId`  
+Fetch messages with a specific user
+
+- `POST /api/messages/send/:userId`  
+Send a new message
+
+- `PUT /api/messages/read/:userId`  
+Mark messages as read
+
+- `GET /api/messages/unread/counts`  
+Get unread message count per chat
+
+---
+
+## 🔄 Real-Time Events (Socket.IO)
+
+### Server Emits
+- `newMessage` – New message received
+- `messagesRead` – Messages marked as read
+- `typing` – User is typing
+- `stopTyping` – User stopped typing
+- `getOnlineUsers` – Online users list
+
+### Client Emits
+- `typing`
+- `stopTyping`
+
+---
+
+## 🧪 Application Flow
+
+1. User sends a message
+2. Message is saved with `isRead = false`
+3. Receiver receives message via Socket.IO
+4. If chat is open:
+ - Message is marked as read immediately
+5. If chat is closed:
+ - Unread count increases
+6. When chat is opened:
+ - Messages are marked read
+ - ✓✓ read receipt sent to sender in real time
+
+---
+
+## 🎯 Assignment Requirements Coverage
+
+| Requirement | Status |
+|------------|--------|
+Send messages | ✅ |
+Persist messages | ✅ |
+Unread by default | ✅ |
+Mark as read on open | ✅ |
+Unread count per conversation | ✅ |
+Read receipts | ✅ |
+API design | ✅ |
+Real-time updates | ✅ |
+
+---
+
+## 🔮 Future Improvements
+- Group chats
+- Message reactions
+- Last seen status
+- Message deletion/editing
+- Push notifications
+
+---
+
+## 👤 Author
+
+**Amit Kumar**  
+IIT Kanpur  
+Full-Stack Developer
 
 🧱 Tech Stack
 Frontend
@@ -63,7 +181,26 @@ JWT Authentication
 Cloudinary (image uploads)
 
 
+🧠 Message Read Status Design
+Message Schema (Simplified)
 
+senderId
+
+receiverId
+
+text
+
+image
+
+isRead (Boolean)
+
+seenAt (Timestamp)
+
+Logic
+
+A message is unread when isRead = false
+
+On opening a chat:
 ---
 
 ## 🧪 .env Setup
