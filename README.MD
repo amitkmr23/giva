@@ -169,7 +169,7 @@ Logic
 
 A message is unread when isRead = false
 
-On opening a chat:
+
 ---
 
 ## 🧪 .env Setup
@@ -231,3 +231,5 @@ Send messages:
 Unread count increases when chat is unopened
 
 Typing indicator shows in real-time
+
+please refresh both the pages after sending the messages as something chats are not loaded
