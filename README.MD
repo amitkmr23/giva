@@ -1,3 +1,6 @@
+## 🎥 Project Demo
+
+[![Watch the demo](https://img.youtube.com/vi/goknmDFVhek/0.jpg)](https://www.youtube.com/watch?v=goknmDFVhek)
 
 # 💬 Real-Time One-to-One Chat Application
 
