@@ -183,10 +183,6 @@ MONGO_URI=your_mongo_uri_here
 NODE_ENV=development
 
 JWT_SECRET=your_jwt_secret
-
-RESEND_API_KEY=your_resend_api_key
-EMAIL_FROM=your_email_from_address
-EMAIL_FROM_NAME=your_email_from_name
 CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
 CLOUDINARY_API_KEY=your_cloudinary_api_key
 CLOUDINARY_API_SECRET=your_cloudinary_api_secret
