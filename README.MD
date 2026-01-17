@@ -138,8 +138,6 @@ Axios
 
 Socket.IO Client
 
-Backend
-
 Node.js
 
 Express.js
