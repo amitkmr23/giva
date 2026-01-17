@@ -232,3 +232,5 @@ Unread count increases when chat is unopened
 Typing indicator shows in real-time
 
 please refresh both the pages after sending the messages as sometimes chats are not loaded
+
+Note:I could have make it more complex like adding group feature,adding OTP generation feature while sign up or send welcome message while signing up.There are a lot of things which can be added.But as I had time contraints and also i don't want to make the assignment more as it was not the requirement of the project.I tried adding some more features but later i realised it will get more complicated so left it.
